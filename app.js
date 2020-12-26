@@ -20,9 +20,9 @@ var favoriteRouter = require('./routes/favoriteRouter');
 
 
 const mongoose = require('mongoose');
-
+mongoose.set("useCreateIndex", true);
 const url = config.mongoUrl;
-const connect = mongoose.connect(url);
+const connect = mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 connect.then((db) => {
   // console.log(db)
